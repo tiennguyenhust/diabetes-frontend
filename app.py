@@ -63,7 +63,7 @@ if st.button('Training'):
         data_train=data_train.to_json(orient='records', lines=True).split('\n')
         data_train=[json.loads(i) for i in data_train if i != '']
         data = {'kwargs': kwargs, 'data_train': data_train}
-        res = requests.post(url_host + '/training?model_name={}'.format(option_model), json=data).json()
+        res = requests.post('/training?model_name={}'.format(option_model), json=data).json()
         
         st.success(f'Training Successful! Your model {option_model} is saved! \n' + str(res))
     else:
@@ -76,7 +76,7 @@ if st.button('Training'):
 st.subheader('Choose your model!')
 
 def get_available_models():
-    model_names = requests.get(url_host + "/models")
+    model_names = requests.get("/models")
     return model_names.json()
 
 
@@ -118,7 +118,7 @@ if st.button('Predict for one patient'):
         st.warning("No model existed! Please select your model!")
         st.stop()
     res = requests.post(
-        url_host + "/predict?model_name={}&age={}&sex={}&bmi={}&bp={}&s1={}&s2={}&s3={}&s4={}&s5={}&s6={}".format(selected_model_name,age,sex,bmi,bp,s1,s2,s3,s4,s5,s5)
+        "/predict?model_name={}&age={}&sex={}&bmi={}&bp={}&s1={}&s2={}&s3={}&s4={}&s5={}&s6={}".format(selected_model_name,age,sex,bmi,bp,s1,s2,s3,s4,s5,s5)
     )
     
     predictions = res.json()
@@ -145,7 +145,7 @@ def inference(selected_model_name):
     data=X_test.to_json(orient='records', lines=True).split('\n')
     data=[json.loads(i) for i in data if i != '']
     
-    res = requests.post(url_host + "/predict_obj?model_name={}".format(selected_model_name), json=data)           
+    res = requests.post("/predict_obj?model_name={}".format(selected_model_name), json=data)           
     
     return res.json()
 

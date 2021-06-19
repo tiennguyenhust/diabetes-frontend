@@ -13,7 +13,7 @@ import requests
 
 
 headers = ['age','sex','bmi','bp','s1','s2','s3','s4','s5','s6', 'quantitative']
-url_host = "https://dspdiabetesapi.herokuapp.com/"
+url_host = "https://dspdiabetesapi.herokuapp.com"
 
 with st.sidebar:
     st.subheader('Instruction!!!!')

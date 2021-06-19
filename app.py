@@ -76,8 +76,8 @@ if st.button('Training'):
 st.subheader('Choose your model!')
 
 def get_available_models():
-    model_names = requests.get(url_host + "/models")
-    return model_names.json()
+    model_names = requests.get(url_host + "/models").json()
+    return model_names
 
 
 selected_model_name = st.selectbox("Available models: (All saved models are loaded here!)", get_available_models()) 

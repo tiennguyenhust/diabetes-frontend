@@ -1,21 +1,14 @@
 """
 You need to run the app from the root
 To run the app
-$ streamlit run serving/frontend/app.py
+$ streamlit run app.py
 """
 
-import numpy as np
 import json
-import joblib
 import pandas as pd
 import streamlit as st
 from PIL import Image
 import requests
-from sklearn.linear_model import ElasticNet
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 
 

@@ -20,7 +20,7 @@ with st.sidebar:
     
     st.text("Read the README file!!")
     st.write("[https://github.com/tiennguyenhust/dsp-diabetes-tien](https://github.com/tiennguyenhust/dsp-diabetes-tien)")
-    image = Image.open('frontend/images/img.jpg')
+    image = Image.open('images/img.jpg')
     st.image(image, caption='*')
     
     st.subheader('Saved models:')
